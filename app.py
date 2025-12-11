@@ -1,9 +1,10 @@
+import sys
 import datetime
 import subprocess
 from page import generate_daily_html
 from parser import CourseParser
 
-CMD1=r'curl --cookie-jar - -s -o /dev/null -L "http://gstudent.gitam.edu/Login/?id=1KfzbrzcraVzS3aqK3oGsw=="'
+CMD1=f'curl --cookie-jar - -s -o /dev/null -L "http://gstudent.gitam.edu/Login/?id={sys.argv[1]}"'
 CMD1_OUT=subprocess.check_output(CMD1, shell=True).decode()
 ASPNET_ID=CMD1_OUT.strip().split()[-1]
 

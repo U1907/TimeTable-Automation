@@ -21,8 +21,11 @@ jobs:
           python-version: "3.11"
 
       - name: Run the script
+        env: 
+          STUDENT_ID: ${{ vars.STUDENT_ID }}
         run: |
-          python app.py
+          python app.py "$STUDENT_ID"
+        
 
       - name: Commit changes
         run: |
